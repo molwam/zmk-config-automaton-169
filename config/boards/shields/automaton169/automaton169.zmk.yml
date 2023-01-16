@@ -6,7 +6,7 @@ url: https://github.com/mowam/automaton169/
 requires: [seeeduino_xiao_ble]
 features:
   - keys
-  - underglow
+  - backlight
 siblings:
   - automaton169_left
   - automaton169_right
