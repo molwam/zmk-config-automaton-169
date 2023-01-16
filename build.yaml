@@ -14,4 +14,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: automaton169
+    shield: automaton169_left
+  - board: seeeduino_xiao_ble
+    shield: automaton169_right

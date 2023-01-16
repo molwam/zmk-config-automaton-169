@@ -4,7 +4,7 @@
 if SHIELD_AUTOMATON169_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "AUTOMATON169"
+    default "Automaton169"
     
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
@@ -17,3 +17,13 @@ config ZMK_SPLIT
     default y
 
 endif
+
+if ZMK_BACKLIGHT
+
+    config PWM
+        default y
+
+    config LED_PWM
+        default y
+
+endif # ZMK_BACKLIGHT
