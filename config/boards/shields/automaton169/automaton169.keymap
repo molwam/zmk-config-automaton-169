@@ -155,28 +155,28 @@
         //      |      | BT1   | BT2   | BT3   | USB   |   |   F11 |   F4  |   F5  |   F6  |   F12 | 
         //      | BTCLR|       |       |       | MAC   |   |   F10 |   F1  |   F2  |   F3  |       |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
-        // func_layer {
-        //     label = "Func";
-        //     bindings = <
-        //                      &trans           &trans       &trans                                          &kp F7        &kp F8       &kp F9 
-        //         &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL N5 &hm LALT F6 &hm RGUI F12
-        //         &bt BT_CLR   &trans           &trans       &trans        &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &trans
-        //                                       &trans       &trans        &trans                &trans      &trans        &trans               
-        //     >;
-        // };
+        func_layer {
+            label = "Func";
+            bindings = <
+                             &trans           &trans       &trans                                          &kp F7        &kp F8       &kp F9 
+                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL N5 &hm LALT F6 &hm RGUI F12
+                &bt BT_CLR   &trans           &trans       &trans        &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &trans
+                                              &trans       &trans        &trans                &trans      &trans        &trans               
+            >;
+        };
 
         //             |       |       |       |                   |   F7  |   F8  |   F9  |
         //      |      | BT1   | BT2   | BT3   | USB   |   |   F11 |   F4  |   F5  |   F6  |   F12 | 
         //      | BTCLR|       |       |       | WIN   |   |   F10 |   F1  |   F2  |   F3  |       |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
-        // func_layer {
-        //     label = "Func";
-        //     bindings = <
-        //                      &trans           &trans       &trans                                          &kp F7        &kp F8      &kp F9 
-        //         &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD N5 &hm LALT F6 &hm RCTRL F12
-        //         &bt BT_CLR   &trans           &trans       &trans        &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &trans
-        //                                       &trans       &trans        &trans                &trans      &trans        &trans               
-        //     >;
-        // };
+        func_mac_layer {
+            label = "Func";
+            bindings = <
+                             &trans           &trans       &trans                                          &kp F7        &kp F8      &kp F9 
+                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD N5 &hm LALT F6 &hm RCTRL F12
+                &bt BT_CLR   &trans           &trans       &trans        &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &trans
+                                              &trans       &trans        &trans                &trans      &trans        &trans               
+            >;
+        };
     };
 };
