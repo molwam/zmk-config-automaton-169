@@ -31,22 +31,13 @@
 
 / {
     behaviors {
-        // hm: homerow_mods {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "homerow mods";
-        //     #binding-cells = <2>;
-        //     tapping_term_ms = <200>;
-        //     flavor = "tap-preferred";
-        //     bindings = <&kp>, <&kp>;
-        // };
         hm: homerow_mods {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HOMEROW_MODS";
-                #binding-cells = <2>;
-                tapping-term-ms = <200>;
-                quick_tap_ms = <0>;
-                flavor = "balanced";
-                bindings = <&kp>, <&kp>;
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -169,7 +160,7 @@
             label = "Func";
             bindings = <
                              &trans           &trans       &trans                                          &kp F7        &kp F8       &kp F9 
-                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL N5 &hm LALT F6 &hm RGUI F12
+                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL F5 &hm LALT F6 &hm RGUI F12
                 &bt BT_CLR   &trans           &trans       &trans        &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &trans
                                               &trans       &trans        &trans                &trans      &trans        &trans               
             >;
@@ -183,7 +174,7 @@
             label = "Func";
             bindings = <
                              &trans           &trans       &trans                                          &kp F7        &kp F8      &kp F9 
-                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD N5 &hm LALT F6 &hm RCTRL F12
+                &trans       &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD F5 &hm LALT F6 &hm RCTRL F12
                 &bt BT_CLR   &trans           &trans       &trans        &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &trans
                                               &trans       &trans        &trans                &trans      &trans        &trans               
             >;
