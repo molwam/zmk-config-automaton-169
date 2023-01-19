@@ -57,10 +57,10 @@
         combo_slash { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp SLASH>; layers = <DEF_L DEF_M_L>; }; // /
         combo_lbkt { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp LBKT>; layers = <NAV_L NAV_M_L>; }; // ]
         combo_rbkt { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp RBKT>; layers = <NAV_L NAV_M_L>; }; // [
-        combo_lpar { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp LPAR>; layers = <DEF_L DEF_M_L NAV_L NAV_M_L>; }; // (
-        combo_rpar { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp RPAR>; layers = <DEF_L DEF_M_L NAV_L NAV_M_L>; }; // )
-        combo_lbrc { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp LBRC>; layers = <DEF_L DEF_M_L NAV_L NAV_M_L>; }; // {
-        combo_rbrc { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp RBRC>; layers = <DEF_L DEF_M_L NAV_L NAV_M_L>; }; // }
+        combo_lpar { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp LPAR>; layers = <NAV_L NAV_M_L>; }; // (
+        combo_rpar { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp RPAR>; layers = <NAV_L NAV_M_L>; }; // )
+        combo_lbrc { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp LBRC>; layers = <NAV_L NAV_M_L>; }; // {
+        combo_rbrc { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp RBRC>; layers = <NAV_L NAV_M_L>; }; // }
         combo_excl { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp EXCL>; layers = <NAV_L NAV_M_L>; }; // !
         combo_euro { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp RA(N5)>; layers = <NUM_L>; }; // €
         combo_euro_m { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp LS(LA(N2))>; layers = <NUM_L>; }; // €
