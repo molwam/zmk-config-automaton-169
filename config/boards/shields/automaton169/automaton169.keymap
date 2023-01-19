@@ -127,29 +127,29 @@
         //      | undo | Prev  | Play  | Next  | volU  |   |   %   |   4   |   5   |   6   |   $   | 
         //      |      | cut   | copy  | paste | volD  |   |   0   |   1   |   2   |   3   |   =   |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
-        // num_layer {
-        //     label = "Num";
-        //     bindings = <
-        //                      &trans           &trans       &trans                                            &kp N7        &kp N8       &kp N9 
-        //         &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
-        //         &trans       &kp CUT          &kp COPY     &kp PASTE      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
-        //                                       &trans       &lt FUNC_L TAB &trans                 &trans      &trans        &trans               
-        //     >;
-        // };
+        num_layer {
+            label = "Num";
+            bindings = <
+                             &trans           &trans       &trans                                            &kp N7        &kp N8       &kp N9 
+                &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
+                &trans       &kp CUT          &kp COPY     &kp PASTE      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                                              &trans       &lt FUNC_L TAB &trans                 &trans      &trans        &trans               
+            >;
+        };
 
         //             |       |       |       |                   |   7   |   8   |   9   |
         //      | undo | Prev  | Play  | Next  | volU  |   |   %   |   4   |   5   |   6   |   $   | 
         //      |      | cut   | copy  | paste | volD  |   |   0   |   1   |   2   |   3   |   =   |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
-        // num_mac_layer {
-        //     label = "Num";
-        //     bindings = <
-        //                      &trans           &trans       &trans                                              &kp N7        &kp N8       &kp N9 
-        //         &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
-        //         &trans       &kp CUT          &kp COPY     &kp PASTE        &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
-        //                                       &trans       &lt FUNC_M_L TAB &trans                 &trans      &trans        &trans               
-        //     >;
-        // };
+        num_mac_layer {
+            label = "Num";
+            bindings = <
+                             &trans           &trans       &trans                                              &kp N7        &kp N8       &kp N9 
+                &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
+                &trans       &kp CUT          &kp COPY     &kp PASTE        &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                                              &trans       &lt FUNC_M_L TAB &trans                 &trans      &trans        &trans               
+            >;
+        };
 
         //             |       |       |       |                   |   F7  |   F8  |   F9  |
         //      |      | BT1   | BT2   | BT3   | USB   |   |   F11 |   F4  |   F5  |   F6  |   F12 | 
