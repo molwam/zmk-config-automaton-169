@@ -3,11 +3,11 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/backlight.h>
 
 #define DEF_L 0
 #define DEF_M_L 1
@@ -63,8 +63,10 @@
         combo_rbrc { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp RBRC>; layers = <NAV_L NAV_M_L>; }; // }
         combo_excl { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp EXCL>; layers = <NAV_L NAV_M_L>; }; // !
         combo_euro { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp RA(N5)>; layers = <NUM_L>; }; // €
-        combo_euro_m { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp LS(LA(N2))>; layers = <NUM_L>; }; // €
-        combo_caret { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp CARET>; layers = <NUM_L>; }; // ^
+        combo_euro_m { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp LS(LA(N2))>; layers = <NUM_M_L>; }; // €
+        combo_at { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp AT>; layers = <NUM_L UM_M_L>; }; // @
+        combo_ss { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp RA(S)>; layers = <NUM_L>; }; // ss
+        combo_caret { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp CARET>; layers = <NUM_L NUM_M_L>; }; // ^
     };
 
     keymap {
@@ -97,28 +99,28 @@
         };
 
         //             | POS1  | UP    | END   |                   |   \   |   `   |   ~   |
-        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   +   |   |   |   "   |   -   |   &   | 
+        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   &   |   |   |   "   |   -   |   +   | 
         //      | sPos1| sBWrd | sBChr | sFChr | sFWrd |   |   #   |   /   |   '   |   _   |   *   |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
         nav_layer {
             label = "Nav";
             bindings = <
                              &kp HOME         &kp UP       &kp END                                         &kp BSLH         &kp GRAVE     &kp TILDE 
-                &kp PG_DN    &kp LEFT         &kp DOWN     &kp RIGHT     &kp PG_UP              &kp PLUS   &hm RSHFT PIPE   &hm RCTRL DQT &hm LALT MINUS &hm RGUI AMPS
+                &kp PG_DN    &kp LEFT         &kp DOWN     &kp RIGHT     &kp PG_UP              &kp AMPS   &hm RSHFT PIPE   &hm RCTRL DQT &hm LALT MINUS &hm RGUI PLUS
                 &kp LS(HOME) &kp LS(LC(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LC(RIGHT))      &kp HASH   &kp SLASH        &kp SQT       &kp UNDER      &kp ASTRK
                                               &trans       &trans        &trans                 &trans     &lt FUNC_L ENTER &trans               
             >;
         };
     
         //             | POS1  | UP    | END   |                   |   \   |   `   |   ~   |
-        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   +   |   |   |   "   |   -   |   &   | 
+        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   &   |   |   |   "   |   -   |   +   | 
         //      | sPos1| sBWrd | sBChr | sFChr | sFWrd |   |   #   |   /   |   '   |   _   |   *   |
         //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
         nav_mac_layer {
             label = "Nav";
             bindings = <
                                  &kp HOME         &kp UP       &kp END                                         &kp BSLH           &kp GRAVE     &kp TILDE 
-                &kp LG(DOWN)     &kp LEFT         &kp DOWN     &kp RIGHT     &kp LG(UP)             &kp PLUS   &hm RSHFT PIPE     &hm RCMD DQT  &hm LALT MINUS &hm RCTRL AMPS
+                &kp LG(DOWN)     &kp LEFT         &kp DOWN     &kp RIGHT     &kp LG(UP)             &kp AMPS   &hm RSHFT PIPE     &hm RCMD DQT  &hm LALT MINUS &hm RCTRL PLUS
                 &kp LS(LG(LEFT)) &kp LS(LA(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LA(RIGHT))      &kp HASH   &kp SLASH          &kp SQT       &kp UNDER      &kp ASTRK
                                                   &trans       &trans        &trans                 &trans     &lt FUNC_M_L ENTER &trans               
             >;
