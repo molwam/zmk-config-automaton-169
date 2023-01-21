@@ -64,7 +64,7 @@
         combo_excl { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp EXCL>; layers = <NAV_L NAV_M_L>; }; // !
         combo_euro { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp RA(N5)>; layers = <NUM_L>; }; // €
         combo_euro_m { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp LS(LA(N2))>; layers = <NUM_M_L>; }; // €
-        combo_at { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp AT>; layers = <NUM_L LUM_M_L>; }; // @
+        combo_at { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp AT>; layers = <NUM_L NUM_M_L>; }; // at
         combo_ss { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp RA(S)>; layers = <NUM_L>; }; // ss
         combo_caret { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp CARET>; layers = <NUM_L NUM_M_L>; }; // ^
     };
