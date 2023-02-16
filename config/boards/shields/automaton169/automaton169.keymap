@@ -20,11 +20,11 @@
 
 
 /* Shortcuts */
-#define CUT LC(X)
-#define COPY LC(C)
-#define PASTE LC(V)
-#define UNDO LC(Z)
-#define SLALL LC(A)
+#define CUT_M LC(X)
+#define COPY_M LC(C)
+#define PASTE_M LC(V)
+#define UNDO_M LC(Z)
+#define SLALL_M LC(A)
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -145,8 +145,8 @@
             label = "Num";
             bindings = <
                              &none            &none        &none                                             &kp N7        &kp N8       &kp N9 
-                &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
-                &none        &kp CUT          &kp COPY     &kp PASTE      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                &kp UNDO_M   &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
+                &none        &kp CUT_M        &kp COPY_M   &kp PASTE_M    &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
                                               &trans       &trans         &trans                 &trans      &trans        &trans               
             >;
         };
@@ -159,8 +159,8 @@
             label = "Num";
             bindings = <
                              &none            &none        &none                                               &kp N7        &kp N8       &kp N9 
-                &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
-                &none        &kp CUT          &kp COPY     &kp PASTE        &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                &kp UNDO_M   &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
+                &none        &kp CUT_M        &kp COPY_M   &kp PASTE_M      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
                                               &trans       &trans           &trans                 &trans      &trans        &trans               
             >;
         };
