@@ -27,4 +27,4 @@
     chosen {
         zmk,backlight = &backlight;
     };
-}:
+};
