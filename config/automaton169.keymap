@@ -1,0 +1,196 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
+#include <behaviors.dtsi>
+
+#define DEF_L 0
+#define DEF_M_L 1
+#define NAV_L 2
+#define NAV_M_L 3
+#define NUM_L 4
+#define NUM_M_L 5
+#define FUNC_L 6
+#define FUNC_M_L 7
+
+
+/* Shortcuts */
+#define CUT_M LC(X)
+#define COPY_M LC(C)
+#define PASTE_M LC(V)
+#define UNDO_M LC(Z)
+#define SLALL_M LC(A)
+
+// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
+&lt { quick_tap_ms = <200>; };
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <NAV_L NUM_L>;
+            then-layer = <FUNC_L>;
+        };
+        tri_layer_M {
+            if-layers = <NAV_M_L NUM_M_L>;
+            then-layer = <FUNC_M_L>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        /*            KEY POSITIONS
+
+             0   1   2              3   4   5    
+         6   7   8   9  10     11  12  13  14  15
+        16  17  18  19  20     21  22  23  24  25
+                26  27  28     29  30  31              
+        */
+        combo_dot { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp DOT>; layers = <DEF_L DEF_M_L>; }; // .
+        combo_comma { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp COMMA>; layers = <DEF_L DEF_M_L>; }; // ,
+        combo_semicolon { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp SEMICOLON>; layers = <DEF_L DEF_M_L>; }; // ;
+        combo_slash { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp SLASH>; layers = <DEF_L DEF_M_L>; }; // /
+        combo_lbkt { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp LBKT>; layers = <NAV_L NAV_M_L>; }; // ]
+        combo_rbkt { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp RBKT>; layers = <NAV_L NAV_M_L>; }; // [
+        combo_lpar { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp LPAR>; layers = <NAV_L NAV_M_L>; }; // (
+        combo_rpar { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp RPAR>; layers = <NAV_L NAV_M_L>; }; // )
+        combo_lbrc { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp LBRC>; layers = <NAV_L NAV_M_L>; }; // {
+        combo_rbrc { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp RBRC>; layers = <NAV_L NAV_M_L>; }; // }
+        combo_excl { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp EXCL>; layers = <NAV_L NAV_M_L>; }; // !
+        combo_euro { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp RA(N5)>; layers = <NUM_L>; }; // €
+        combo_euro_m { timeout-ms = <50>; key-positions = <14 15>; bindings = <&kp LS(LA(N2))>; layers = <NUM_M_L>; }; // €
+        combo_at { timeout-ms = <50>; key-positions = <4 5>; bindings = <&kp AT>; layers = <NUM_L NUM_M_L>; }; // at
+        combo_ss { timeout-ms = <50>; key-positions = <3 4>; bindings = <&kp RA(S)>; layers = <NUM_L>; }; // ss
+        combo_caret { timeout-ms = <50>; key-positions = <24 25>; bindings = <&kp CARET>; layers = <NUM_L NUM_M_L>; }; // ^
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        //             | Y     | O     | U     |                   | L     | D     | W     |
+        //      | C    | I     | E     | A     | B     |   | V     | H     | T     | S     | N     | 
+        //      | Z    | X     | J     | K     | G     |   | P     | R     | M     | T     | Q     |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        default_layer {
+            bindings = <
+                           &kp Y      &kp O        &kp U                                          &kp L           &kp D       &kp W       
+                &hm LGUI C &hm LALT I &hm LCTRL E  &hm LSHFT A   &kp B             &kp V          &hm RSHFT H     &hm RCTRL T &hm LALT S &hm RGUI N
+                &kp Z      &kp X      &kp J        &kp K         &kp G             &kp P          &kp R           &kp M       &kp F      &kp Q
+                                      &mt LGUI ESC &lt NAV_L TAB &mt LSHFT SPACE   &mt LCTRL BSPC &lt NUM_L ENTER &mt LALT DEL
+            >;
+        };
+
+        //             | Y     | O     | U     |                   | L     | D     | W     |
+        //      | C    | I     | E     | A     | B     |   | V     | H     | T     | S     | N     | 
+        //      | Z    | X     | J     | K     | G     |   | P     | R     | M     | T     | Q     |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        default_mac_layer {
+            bindings = <
+                            &kp Y      &kp O         &kp U                                            &kp L             &kp D       &kp W       
+                &hm LCTRL C &hm LALT I &hm LCMD E    &hm LSHFT A     &kp B             &kp V          &hm RSHFT H       &hm RCMD T  &hm LALT S &hm RCTRL N
+                &kp Z       &kp X      &kp J         &kp K           &kp G             &kp P          &kp R             &kp M       &kp F      &kp Q
+                                       &mt LCTRL ESC &lt NAV_M_L TAB &mt LSHFT SPACE   &mt LCMD BSPC  &lt NUM_M_L ENTER &mt LALT DEL
+            >;
+        };
+
+        //             | POS1  | UP    | END   |                   |   \   |   `   |   ~   |
+        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   &   |   |   |   "   |   -   |   +   | 
+        //      | sPos1| sBWrd | sBChr | sFChr | sFWrd |   |   #   |   /   |   '   |   _   |   *   |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        nav_layer {
+            label = "Nav";
+            bindings = <
+                             &kp HOME         &kp UP       &kp END                                         &kp BSLH         &kp GRAVE     &kp TILDE 
+                &kp PG_DN    &kp LEFT         &kp DOWN     &kp RIGHT     &kp PG_UP              &kp AMPS   &hm RSHFT PIPE   &hm RCTRL DQT &hm LALT MINUS &hm RGUI PLUS
+                &kp LS(HOME) &kp LS(LC(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LC(RIGHT))      &kp HASH   &kp SLASH        &kp SQT       &kp UNDER      &kp ASTRK
+                                              &trans       &trans        &trans                 &trans     &trans           &trans               
+            >;
+        };
+    
+        //             | POS1  | UP    | END   |                   |   \   |   `   |   ~   |
+        //      | pgDwn| LEFT  | DOWN  | RIGHT | pgUp  |   |   &   |   |   |   "   |   -   |   +   | 
+        //      | sPos1| sBWrd | sBChr | sFChr | sFWrd |   |   #   |   /   |   '   |   _   |   *   |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        nav_mac_layer {
+            label = "Nav";
+            bindings = <
+                                 &kp HOME         &kp UP       &kp END                                         &kp BSLH           &kp GRAVE     &kp TILDE 
+                &kp LG(DOWN)     &kp LEFT         &kp DOWN     &kp RIGHT     &kp LG(UP)             &kp AMPS   &hm RSHFT PIPE     &hm RCMD DQT  &hm LALT MINUS &hm RCTRL PLUS
+                &kp LS(LG(LEFT)) &kp LS(LA(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LA(RIGHT))      &kp HASH   &kp SLASH          &kp SQT       &kp UNDER      &kp ASTRK
+                                                  &trans       &trans        &trans                 &trans     &trans             &trans               
+            >;
+        };
+
+        //             |       |       |       |                   |   7   |   8   |   9   |
+        //      | undo | Prev  | Play  | Next  | volU  |   |   %   |   4   |   5   |   6   |   $   | 
+        //      |      | cut   | copy  | paste | volD  |   |   0   |   1   |   2   |   3   |   =   |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        num_layer {
+            label = "Num";
+            bindings = <
+                             &none            &none        &none                                             &kp N7        &kp N8       &kp N9 
+                &kp UNDO_M   &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
+                &none        &kp CUT_M        &kp COPY_M   &kp PASTE_M    &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                                              &trans       &trans         &trans                 &trans      &trans        &trans               
+            >;
+        };
+
+        //             |       |       |       |                   |   7   |   8   |   9   |
+        //      | undo | Prev  | Play  | Next  | volU  |   |   %   |   4   |   5   |   6   |   $   | 
+        //      |      | cut   | copy  | paste | volD  |   |   0   |   1   |   2   |   3   |   =   |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        num_mac_layer {
+            label = "Num";
+            bindings = <
+                             &none            &none        &none                                               &kp N7        &kp N8       &kp N9 
+                &kp UNDO_M   &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
+                &none        &kp CUT_M        &kp COPY_M   &kp PASTE_M      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
+                                              &trans       &trans           &trans                 &trans      &trans        &trans               
+            >;
+        };
+
+        //             |       | XTRPWR|       |                   |   F7  |   F8  |   F9  |
+        //      |      | BT1   | BT2   | BT3   | USB   |   |   F11 |   F4  |   F5  |   F6  |   F12 | 
+        //      | BTCLR| L-    | BLGHT | L+    | MAC   |   |   F10 |   F1  |   F2  |   F3  |       |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        func_layer {
+            label = "Func";
+            bindings = <
+                             &none            &none             &none                                           &kp F7        &kp F8       &kp F9 
+                &none        &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL F5 &hm LALT F6 &hm RGUI F12
+                &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &none 
+                                              &trans            &trans        &trans                &trans      &trans        &trans               
+            >;
+        };
+
+        //             |       | XTRPWR|       |                   |   F7  |   F8  |   F9  |
+        //      |      | BT1   | BT2   | BT3   | USB   |   |   F11 |   F4  |   F5  |   F6  |   F12 | 
+        //      | BTCLR| L-    | BLGHT | L+    | WIN   |   |   F10 |   F1  |   F2  |   F3  |       |
+        //                     | ESC   | TAB   | SPACE |   | BSPC  | ENTER | DEL   |
+        func_mac_layer {
+            label = "Func";
+            bindings = <
+                             &none            &none             &none                                           &kp F7        &kp F8      &kp F9 
+                &none        &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD F5 &hm LALT F6 &hm RCTRL F12
+                &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &none 
+                                              &trans            &trans        &trans                &trans      &trans        &trans               
+            >;
+        };
+    };
+};
