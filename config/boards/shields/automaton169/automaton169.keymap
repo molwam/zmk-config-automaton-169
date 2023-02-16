@@ -3,12 +3,11 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/backlight.h>
-#include <dt-bindings/zmk/ext_power.h>
 
 #define DEF_L 0
 #define DEF_M_L 1
@@ -39,6 +38,17 @@
             tapping_term_ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <NAV_L NUM_L>;
+            then-layer = <FUNC_L>;
+        };
+        tri_layer_M {
+            if-layers = <NAV_M_L NUM_M_L>;
+            then-layer = <FUNC_M_L>;
         };
     };
 
@@ -109,7 +119,7 @@
                              &kp HOME         &kp UP       &kp END                                         &kp BSLH         &kp GRAVE     &kp TILDE 
                 &kp PG_DN    &kp LEFT         &kp DOWN     &kp RIGHT     &kp PG_UP              &kp AMPS   &hm RSHFT PIPE   &hm RCTRL DQT &hm LALT MINUS &hm RGUI PLUS
                 &kp LS(HOME) &kp LS(LC(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LC(RIGHT))      &kp HASH   &kp SLASH        &kp SQT       &kp UNDER      &kp ASTRK
-                                              &trans       &trans        &trans                 &trans     &lt FUNC_L ENTER &trans               
+                                              &trans       &trans        &trans                 &trans     &trans           &trans               
             >;
         };
     
@@ -123,7 +133,7 @@
                                  &kp HOME         &kp UP       &kp END                                         &kp BSLH           &kp GRAVE     &kp TILDE 
                 &kp LG(DOWN)     &kp LEFT         &kp DOWN     &kp RIGHT     &kp LG(UP)             &kp AMPS   &hm RSHFT PIPE     &hm RCMD DQT  &hm LALT MINUS &hm RCTRL PLUS
                 &kp LS(LG(LEFT)) &kp LS(LA(LEFT)) &kp LS(LEFT) &kp LS(RIGHT) &kp LS(LA(RIGHT))      &kp HASH   &kp SLASH          &kp SQT       &kp UNDER      &kp ASTRK
-                                                  &trans       &trans        &trans                 &trans     &lt FUNC_M_L ENTER &trans               
+                                                  &trans       &trans        &trans                 &trans     &trans             &trans               
             >;
         };
 
@@ -137,7 +147,7 @@
                              &trans           &trans       &trans                                            &kp N7        &kp N8       &kp N9 
                 &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT     &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCTRL N5 &hm LALT N6 &hm RGUI DOLLAR
                 &trans       &kp CUT          &kp COPY     &kp PASTE      &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
-                                              &trans       &lt FUNC_L TAB &trans                 &trans      &trans        &trans               
+                                              &trans       &trans         &trans                 &trans      &trans        &trans               
             >;
         };
 
@@ -151,7 +161,7 @@
                              &trans           &trans       &trans                                              &kp N7        &kp N8       &kp N9 
                 &kp UNDO     &kp C_PREV       &kp C_PLAY   &kp C_NEXT       &kp C_VOL_UP           &kp PERCENT &hm RSHFT N4  &hm RCMD N5  &hm LALT N6 &hm RCTRL DOLLAR
                 &trans       &kp CUT          &kp COPY     &kp PASTE        &kp C_VOL_DN           &kp N0      &kp N1        &kp N2       &kp N3      &kp EQUAL
-                                              &trans       &lt FUNC_M_L TAB &trans                 &trans      &trans        &trans               
+                                              &trans       &trans           &trans                 &trans      &trans        &trans               
             >;
         };
 
@@ -162,7 +172,7 @@
         func_layer {
             label = "Func";
             bindings = <
-                             &trans           &ext_power EP_TOG &trans                                         &kp F7        &kp F8       &kp F9 
+                             &trans           &trans            &trans                                         &kp F7        &kp F8       &kp F9 
                 &trans       &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL F5 &hm LALT F6 &hm RGUI F12
                 &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &trans
                                               &trans            &trans        &trans                &trans      &trans        &trans               
@@ -176,7 +186,7 @@
         func_mac_layer {
             label = "Func";
             bindings = <
-                             &trans           &ext_power EP_TOG &trans                                          &kp F7        &kp F8      &kp F9 
+                             &trans           &trans            &trans                                         &kp F7        &kp F8      &kp F9 
                 &trans       &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD F5 &hm LALT F6 &hm RCTRL F12
                 &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &trans
                                               &trans            &trans        &trans                &trans      &trans        &trans               
