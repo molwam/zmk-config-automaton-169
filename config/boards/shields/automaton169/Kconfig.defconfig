@@ -17,3 +17,14 @@ config ZMK_SPLIT
     default y
 
 endif # LEFT RIGHT
+
+
+if ZMK_BACKLIGHT
+
+    config PWM
+        default y
+
+    config LED_PWM
+        default y
+
+endif # ZMK_BACKLIGHT
