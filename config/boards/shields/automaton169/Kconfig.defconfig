@@ -17,9 +17,3 @@ config ZMK_SPLIT
     default y
 
 endif # LEFT RIGHT
-
-config PWM
-    default y
-
-config LED_PWM
-    default y
