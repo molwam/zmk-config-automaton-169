@@ -71,50 +71,6 @@
                 blue2 { len-ms = <100>; brightness = <0 0 50>; };
             };
         };
-        battery {
-            low {
-                arg = <30>;
-                priority = <50>;
-                period-ms = <30000>;
-                green { len-ms = <100>; brightness = <0 20 0>; };
-                red { len-ms = <200>; brightness = <100 0 0>; };
-            };
-            mid {
-                arg = <70>;
-                priority = <50>;
-                period-ms = <30000>;
-                green { len-ms = <100>; brightness = <0 20 0>; };
-                yellow { len-ms = <200>; brightness = <100 100 0>; };
-            };
-            high {
-                arg = <100>;
-                priority = <50>;
-                period-ms = <30000>;
-                green { len-ms = <50>; brightness = <0 100 0>; };
-            };
-        };
-        layer {
-            lower {
-                arg = <1>;
-                priority = <20>;
-                stat { brightness = <0 0 20>; };
-            };
-            raise {
-                arg = <2>;
-                priority = <20>;
-                stat { brightness = <0 20 0>; };
-            };
-            game {
-                arg = <3>;
-                priority = <20>;
-                stat { brightness = <0 0 50>; };
-            };
-            steno {
-                arg = <4>;
-                priority = <20>;
-                stat { brightness = <50 0 0>; };
-            };
-        };
         output {
             usb {
                 arg = <0>;
