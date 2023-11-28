@@ -173,7 +173,7 @@
             bindings = <
                              &none            &none             &none                                           &kp F7        &kp F8       &kp F9 
                 &none        &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCTRL F5 &hm LALT F6 &hm RGUI F12
-                &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &none 
+                &bt BT_CLR   &none            &none             &none         &to DEF_M_L           &kp F10     &kp F1        &kp F2       &kp F3      &none 
                                               &trans            &trans        &trans                &trans      &trans        &trans               
             >;
         };
@@ -187,7 +187,7 @@
             bindings = <
                              &none            &none             &none                                           &kp F7        &kp F8      &kp F9 
                 &none        &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2  &out OUT_TOG          &kp F11     &hm RSHFT F4  &hm RCMD F5 &hm LALT F6 &hm RCTRL F12
-                &bt BT_CLR   &bl BL_DEC       &bl BL_TOG        &bl BL_INC    &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &none 
+                &bt BT_CLR   &none            &none             &none         &to DEF_L             &kp F10     &kp F1        &kp F2      &kp F3      &none 
                                               &trans            &trans        &trans                &trans      &trans        &trans               
             >;
         };
