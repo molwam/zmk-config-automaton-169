@@ -1,4 +1,4 @@
-if ZMK_BACKLIGHT
+if ZMK_LED_WIDGETS
 
 config PWM
     default y
@@ -6,4 +6,4 @@ config PWM
 config LED_PWM
     default y
 
-endif # ZMK_BACKLIGHT
+endif # ZMK_LED_WIDGETS

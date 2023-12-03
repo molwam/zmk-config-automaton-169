@@ -48,15 +48,15 @@
     leds: leds {
         compatible = "pwm-leds";
         red_led: led_r {
-            pwms = <&pwm0 2>;
+            pwms = <&pwm0 0>;
             label = "Red LED";
         };
         green_led: led_g {
-            pwms = <&pwm0 3>;
+            pwms = <&pwm0 1>;
             label = "Green LED";
         };
         blue_led: led_b {
-            pwms = <&pwm0 28>;
+            pwms = <&pwm0 2>;
             label = "Blue LED";
         };
     };
